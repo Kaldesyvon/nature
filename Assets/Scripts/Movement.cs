@@ -4,20 +4,37 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    PlayerController contorls;
-    
-    void Start()
-    {
-        contorls = new PlayerController();
-    }
+   PlayerController controller;
+   CharacterController chController;
+   public GameObject avatar;
 
-    private void OnEnable()
-    {
-        contorls.Player.Enable();
-    }
+   [Range(1f, 10f)]
+   public float moveSpeed = 1f;
+   [Range(1f, 10f)]
+   public float rotationSpeed = 1f;
 
-    private void OnDisable()
-    {
-        contorls.Player.Disable();
-    }
+   private void Awake()
+   {
+      controller = new PlayerController();
+   }
+
+   void Update()
+   {
+      Move();
+   }
+
+   private void Move()
+   {
+      
+   }
+
+   private void OnEnable()
+   {
+      controller.keyboard.Enable();
+   }
+
+   private void OnDisable()
+   {
+      controller.keyboard.Disable();
+   }
 }
