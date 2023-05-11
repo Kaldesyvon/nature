@@ -27,7 +27,13 @@ public class DoggiRotation : MonoBehaviour
         {
             Vector3 targetDirection = camera.transform.position - doggi.transform.position;
 
-            Vector3 newDirection = Vector3.RotateTowards(doggi.transform.forward, targetDirection, rotationSpeed * Time.deltaTime, 0f);
+            targetDirection.y = 0f;
+
+            Vector3 newDirection = Vector3.RotateTowards(
+                doggi.transform.forward,
+                targetDirection,
+                rotationSpeed * Time.deltaTime,
+                0f);
 
             doggi.transform.rotation = Quaternion.LookRotation(newDirection);
         }
