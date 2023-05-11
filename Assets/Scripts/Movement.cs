@@ -29,30 +29,8 @@ public class Movement : MonoBehaviour
     private void Move()
     {
         Vector2 m = playerController.KeyboardPlayer.Move.ReadValue<Vector2>();
-        camera.transform.rotation = camera.transform.rotation;
         Vector3 movement = (m.y * camera.transform.forward) + (m.x * camera.transform.right);
         characterController.Move(moveSpeed * Time.deltaTime * movement);
-
-        //if (m.y > 0.9f)
-        //{
-        //    movement = avatar.transform.forward;
-        //    characterController.Move(moveSpeed * Time.deltaTime * movement);
-        //}
-        //if (m.y < -0.9f)
-        //{
-        //    movement = -avatar.transform.forward;
-        //    characterController.Move(moveSpeed * Time.deltaTime * movement);
-        //}
-        //if (m.x > 0.9f)
-        //{
-        //    movement = avatar.transform.right;
-        //    characterController.Move(moveSpeed * Time.deltaTime * movement);
-        //}
-        //if (m.x < -0.9f)
-        //{
-        //    movement = -avatar.transform.right;
-        //    characterController.Move(moveSpeed * Time.deltaTime * movement);
-        //}
     }
 
     private void OnEnable()

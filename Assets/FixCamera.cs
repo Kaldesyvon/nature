@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class FixCamera : MonoBehaviour
 {
-    Vector3 cameraPosition;
-    Quaternion cameraRotation;
     public new Camera camera;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        //cameraPosition = camera.transform.position;
-        //cameraRotation = camera.transform.rotation;
-    }
+    public Camera mainCamera;
+    public GameObject avatar;
 
-    // Update is called once per frame
     void Update()
     {
-        camera.transform.position = new Vector3(9.971848f, 21.41265f, -31.6289f);
-        //camera.transform.rotation = cameraRotation;
+        camera.transform.SetPositionAndRotation(camera.GetComponentInParent<Transform>().position,
+            Quaternion.Euler(0, 0, 180));
     }
+
+    //private float GetRelativeAngle() 
+    //{
+    //    float dz = mainCamera.transform.z - camera.transform.position.z;    
+    //    float dx = mainCamera.transform.position.x - camera.transform.position.x;
+
+    //    Debug.Log("dx: " + dx + " dz: " + dz);
+
+    //    float angle = Mathf.Tan(dz / dx) * Mathf.Rad2Deg;
+
+    //    Debug.Log(angle);
+
+    //    return angle;
+    //}
 }
